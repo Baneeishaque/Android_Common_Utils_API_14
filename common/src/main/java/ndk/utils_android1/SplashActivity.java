@@ -32,6 +32,6 @@ public abstract class SplashActivity extends Context_Activity {
         }, SPLASH_TIME_OUT);
     }
 
-    abstract Class<?> configureNextClass();
+    protected abstract Class<?> configureNextClass();
 }
 
