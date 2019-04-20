@@ -10,7 +10,7 @@ import com.github.kimkevin.cachepot.CachePot;
 
 import java.util.Objects;
 
-public class Activity_Utils extends ndk.utils_android1.Activity_Utils {
+public class ActivityUtils extends ndk.utils_android1.ActivityUtils {
 
     public static Intent construct_Intent_With_String_Extras(Context context, Class activity, Pair[] extras) {
         Intent intent = new Intent(context, activity);
