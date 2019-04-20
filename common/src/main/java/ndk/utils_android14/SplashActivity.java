@@ -1,4 +1,4 @@
-package ndk.utils_android1;
+package ndk.utils_android14;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.os.Handler;
 //TODO : Full screen splash
 //TODO : Develop tests
 
-public abstract class SplashActivity extends Context_Activity {
+public abstract class SplashActivity extends ContextActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
