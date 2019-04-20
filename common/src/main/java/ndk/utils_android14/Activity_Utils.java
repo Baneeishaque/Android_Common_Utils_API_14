@@ -63,8 +63,6 @@ public class Activity_Utils extends ndk.utils_android1.Activity_Utils {
         Log.d(APPLICATION_NAME, "Next Activity : " + activity.getName());
         Log.d(APPLICATION_NAME, "Next Activity : " + activity.getSimpleName());
 
-//        Intent intent = new Intent(context, activity);
-//        context.startActivity(intent);
         start_activity(context, activity);
         ((AppCompatActivity) context).finish();
     }
