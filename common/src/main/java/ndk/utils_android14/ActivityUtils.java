@@ -2,9 +2,10 @@ package ndk.utils_android14;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.util.Pair;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.Pair;
 
 import com.github.kimkevin.cachepot.CachePot;
 
