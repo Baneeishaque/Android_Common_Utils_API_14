@@ -5,5 +5,5 @@ import android.content.Context;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ContextActivity extends AppCompatActivity {
-    public Context activity_context = this;
+    public Context activityContext = this;
 }

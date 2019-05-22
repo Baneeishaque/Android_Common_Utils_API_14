@@ -24,7 +24,7 @@ public abstract class SplashActivity extends ContextActivity {
         new Handler().postDelayed(() -> {
             // This method will be executed once the timer is over
             // Start your app main activity
-            Intent i = new Intent(activity_context, configureNextClass());
+            Intent i = new Intent(activityContext, configureNextClass());
             startActivity(i);
 
             // close this activity
