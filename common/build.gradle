@@ -33,8 +33,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.github.kimkevin:cachepot:1.2.0'
 
-//    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_1:7359adffb3'
-    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_1:a351d6428e'
+    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_1:f6cd92707d'
 
     testImplementation 'junit:junit:4.12'
 
