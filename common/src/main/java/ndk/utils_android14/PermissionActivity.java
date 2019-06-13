@@ -22,7 +22,6 @@ public abstract class PermissionActivity extends ContextActivity {
         }
     }
 
-    //    ACCESS_FINE_LOCATION
     protected abstract String configurePermission();
 
     protected abstract int configure_PERMISSION_REQUEST_CODE();

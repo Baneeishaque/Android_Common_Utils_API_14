@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class SharedPreferencesActivity extends AppCompatActivity {
 
-    public SharedPreferences get_shared_preferences() {
-        return getApplicationContext().getSharedPreferences(configure_APPLICATION_NAME(), Context.MODE_PRIVATE);
+    public SharedPreferences getSharedPreferences() {
+        return getApplicationContext().getSharedPreferences(configureAPPLICATIONNAME(), Context.MODE_PRIVATE);
     }
 
-    protected abstract String configure_APPLICATION_NAME();
+    protected abstract String configureAPPLICATIONNAME();
 }
