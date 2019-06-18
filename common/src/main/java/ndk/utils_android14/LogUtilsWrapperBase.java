@@ -6,7 +6,7 @@ public abstract class LogUtilsWrapperBase {
         LogUtils.debug(configureTag(), message, configureIsDebug());
     }
 
-    abstract boolean configureIsDebug();
+    public abstract boolean configureIsDebug();
 
-    abstract String configureTag();
+    public abstract String configureTag();
 }
