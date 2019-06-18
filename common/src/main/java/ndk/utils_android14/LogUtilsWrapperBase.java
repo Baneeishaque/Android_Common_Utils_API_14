@@ -10,7 +10,7 @@ public class LogUtilsWrapperBase {
         LogUtilsWrapperBase.isDebug = isDebug;
     }
 
-    private static void debug(String message) {
+    public static void debug(String message) {
         LogUtils.debug(tag, message, isDebug);
     }
 }
