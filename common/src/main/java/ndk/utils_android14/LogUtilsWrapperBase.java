@@ -3,14 +3,12 @@ package ndk.utils_android14;
 public class LogUtilsWrapperBase {
 
     private static String tag;
-    private static boolean isDebug;
 
-    public LogUtilsWrapperBase(String tag, boolean isDebug) {
+    public LogUtilsWrapperBase(String tag) {
         LogUtilsWrapperBase.tag = tag;
-        LogUtilsWrapperBase.isDebug = isDebug;
     }
 
     public static void debug(String message) {
-        LogUtils.debug(tag, message, isDebug);
+        LogUtils.debug(tag, message, BuildConfig.DEBUG);
     }
 }
