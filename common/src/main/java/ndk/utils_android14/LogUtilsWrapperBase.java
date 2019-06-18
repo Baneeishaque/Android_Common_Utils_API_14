@@ -1,12 +1,16 @@
 package ndk.utils_android14;
 
-public abstract class LogUtilsWrapperBase {
+public class LogUtilsWrapperBase {
 
-    public void debug(String message) {
-        LogUtils.debug(configureTag(), message, configureIsDebug());
+    private static String tag;
+    private static boolean isDebug;
+
+    public LogUtilsWrapperBase(String tag, boolean isDebug) {
+        LogUtilsWrapperBase.tag = tag;
+        LogUtilsWrapperBase.isDebug = isDebug;
     }
 
-    public abstract boolean configureIsDebug();
-
-    public abstract String configureTag();
+    private static void debug(String message) {
+        LogUtils.debug(tag, message, isDebug);
+    }
 }
