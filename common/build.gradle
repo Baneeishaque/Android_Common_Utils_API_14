@@ -40,8 +40,9 @@ dependencies {
 
     implementation 'com.github.kimkevin:cachepot:1.2.0'
 
-    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_1:935f0541e4'
-
+    //TODO : Bug on jitpack
+//    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_1:66ee621606'
+    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_1:b9cb4be04c'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
