@@ -40,8 +40,6 @@ dependencies {
 
     implementation 'com.github.kimkevin:cachepot:1.2.0'
 
-//    api 'com.github.Baneeishaque:Android_Common_Utils_API_1:0726486cb3'
-
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
