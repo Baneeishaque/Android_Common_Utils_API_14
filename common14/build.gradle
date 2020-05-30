@@ -3,6 +3,7 @@ apply plugin: 'com.android.library'
 android {
 
     compileSdkVersion 29
+    buildToolsVersion '29.0.3'
 
     defaultConfig {
 
@@ -40,10 +41,12 @@ dependencies {
 
     implementation 'com.github.kimkevin:cachepot:1.2.0'
 
+    api project(path: ':Utils_1:common1')
+
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     testImplementation 'junit:junit:4.13'
 
-    api project(path: ':Android_Common_Utils_API_1:common1')
+//    api project(path: ':Utils_1:common1')
 }
