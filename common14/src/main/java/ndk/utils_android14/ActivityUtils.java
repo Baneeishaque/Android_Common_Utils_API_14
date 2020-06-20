@@ -17,15 +17,15 @@ public class ActivityUtils extends ndk.utils_android1.ActivityUtils {
         ((AppCompatActivity) activityContext).finish();
     }
 
-    public static void startActivityWithFinish(Context activityContext, Intent intent) {
-        startActivity(activityContext, intent);
-        ((AppCompatActivity) activityContext).finish();
+    public static void startActivityWithFinish(Context currentActivityContext, Intent nextActivityIntent) {
+        startActivity(currentActivityContext, nextActivityIntent);
+        ((AppCompatActivity) currentActivityContext).finish();
     }
 
-    public static Intent getIntentWithStringExtras(Context context, Class activity, Pair[] extras) {
-        Intent intent = new Intent(context, activity);
-        if (extras.length != 0) {
-            for (Pair extra : extras) {
+    public static Intent getIntentWithStringExtras(Context currentActivityContext, Class nextActivity, Pair[] nextActivityExtras) {
+        Intent intent = new Intent(currentActivityContext, nextActivity);
+        if (nextActivityExtras.length != 0) {
+            for (Pair extra : nextActivityExtras) {
                 intent.putExtra(extra.first != null ? extra.first.toString() : null, extra.second != null ? extra.second.toString() : null);
             }
         }
@@ -92,7 +92,7 @@ public class ActivityUtils extends ndk.utils_android1.ActivityUtils {
         ((AppCompatActivity) activityContext).finish();
     }
 
-    public static void startActivityWithStringExtrasAndFinish(Context context, Class activity, Pair[] extras) {
-        startActivityWithFinish(context, getIntentWithStringExtras(context, activity, extras));
+    public static void startActivityWithStringExtrasAndFinish(Context currentActivityContext, Class nextActivity, Pair[] nextActivityExtras) {
+        startActivityWithFinish(currentActivityContext, getIntentWithStringExtras(currentActivityContext, nextActivity, nextActivityExtras));
     }
 }
