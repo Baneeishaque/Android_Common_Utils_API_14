@@ -10,7 +10,9 @@ import com.github.kimkevin.cachepot.CachePot;
 
 import java.util.Objects;
 
-public class ActivityUtils extends ndk.utils_android1.ActivityUtils {
+import ndk.utils_android1.ActivityUtils1;
+
+public class ActivityUtils extends ActivityUtils1 {
 
     public static void startActivityWithFinish(Context activityContext, Class activity) {
         startActivity(activityContext, activity);
