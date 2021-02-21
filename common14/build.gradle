@@ -102,5 +102,5 @@ dependencies {
 
     api project(path: ':Utils_1:common1')
 
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13.2'
 }
