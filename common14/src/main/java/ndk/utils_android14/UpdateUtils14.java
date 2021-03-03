@@ -18,36 +18,36 @@ public class UpdateUtils14 {
 
     //     FireStoreRequestResponse fireStoreRequestResponse = new FireStoreRequestResponse(2, Map.of(), new Exception());
 
-    //     DocumentReference documentReference = firebaseFirestoreDb.collection("configuration").document("1");
+    //     // DocumentReference documentReference = firebaseFirestoreDb.collection("configuration").document("1");
 
-    //     documentReference.get().addOnCompleteListener(task -> {
+    //     // documentReference.get().addOnCompleteListener(task -> {
 
-    //         if (task.isSuccessful()) {
+    //     //     if (task.isSuccessful()) {
 
-    //             DocumentSnapshot document = task.getResult();
-    //             if (document != null && document.exists()) {
+    //     //         DocumentSnapshot document = task.getResult();
+    //     //         if (document != null && document.exists()) {
 
-    //                 LogUtils.debug(applicationName, "DocumentSnapshot data: " + document.getData());
+    //     //             LogUtils.debug(applicationName, "DocumentSnapshot data: " + document.getData());
 
-    //                 fireStoreRequestResponse.setStatus(0);
-    //                 fireStoreRequestResponse.setData(document.getData());
+    //     //             fireStoreRequestResponse.setStatus(0);
+    //     //             fireStoreRequestResponse.setData(document.getData());
 
-    //             } else {
+    //     //         } else {
 
-    //                 LogUtils.debug(applicationName, "No such document...");
+    //     //             LogUtils.debug(applicationName, "No such document...");
 
-    //                 fireStoreRequestResponse.setStatus(1);
-    //             }
-    //         } else {
+    //     //             fireStoreRequestResponse.setStatus(1);
+    //     //         }
+    //     //     } else {
 
-    //             ExceptionUtils1.handleExceptionOnGui(applicationContext, applicationName, task.getException());
+    //     //         ExceptionUtils1.handleExceptionOnGui(applicationContext, applicationName, task.getException());
 
-    //             fireStoreRequestResponse.setStatus(-1);
-    //             fireStoreRequestResponse.setException(task.getException());
-    //         }
-    //     });
-    //     while (fireStoreRequestResponse.getData().isEmpty()) {
-    //     }
+    //     //         fireStoreRequestResponse.setStatus(-1);
+    //     //         fireStoreRequestResponse.setException(task.getException());
+    //     //     }
+    //     // });
+    //     // while (fireStoreRequestResponse.getData().isEmpty()) {
+    //     // }
     //     return fireStoreRequestResponse;
     // }
 }
