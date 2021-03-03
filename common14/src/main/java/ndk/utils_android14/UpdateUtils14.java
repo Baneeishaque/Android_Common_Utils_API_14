@@ -12,41 +12,42 @@ import android.content.Context;
 import java.util.Map;
 
 public class UpdateUtils14 {
- 
-    public static FireStoreRequestResponse getServerVersionFireStore(FirebaseFirestore firebaseFirestoreDb, String applicationName, Context applicationContext) {
 
-        FireStoreRequestResponse fireStoreRequestResponse = new FireStoreRequestResponse(2, Map.of(), new Exception());
+    //TODO : Not compatiable with SDK 14
+    // public static FireStoreRequestResponse getServerVersionFireStore(FirebaseFirestore firebaseFirestoreDb, String applicationName, Context applicationContext) {
 
-        DocumentReference documentReference = firebaseFirestoreDb.collection("configuration").document("1");
+    //     FireStoreRequestResponse fireStoreRequestResponse = new FireStoreRequestResponse(2, Map.of(), new Exception());
 
-        documentReference.get().addOnCompleteListener(task -> {
+    //     DocumentReference documentReference = firebaseFirestoreDb.collection("configuration").document("1");
 
-            if (task.isSuccessful()) {
+    //     documentReference.get().addOnCompleteListener(task -> {
 
-                DocumentSnapshot document = task.getResult();
-                if (document != null && document.exists()) {
+    //         if (task.isSuccessful()) {
 
-                    LogUtils.debug(applicationName, "DocumentSnapshot data: " + document.getData());
+    //             DocumentSnapshot document = task.getResult();
+    //             if (document != null && document.exists()) {
 
-                    fireStoreRequestResponse.setStatus(0);
-                    fireStoreRequestResponse.setData(document.getData());
+    //                 LogUtils.debug(applicationName, "DocumentSnapshot data: " + document.getData());
 
-                } else {
+    //                 fireStoreRequestResponse.setStatus(0);
+    //                 fireStoreRequestResponse.setData(document.getData());
 
-                    LogUtils.debug(applicationName, "No such document...");
+    //             } else {
 
-                    fireStoreRequestResponse.setStatus(1);
-                }
-            } else {
+    //                 LogUtils.debug(applicationName, "No such document...");
 
-                ExceptionUtils1.handleExceptionOnGui(applicationContext, applicationName, task.getException());
+    //                 fireStoreRequestResponse.setStatus(1);
+    //             }
+    //         } else {
 
-                fireStoreRequestResponse.setStatus(-1);
-                fireStoreRequestResponse.setException(task.getException());
-            }
-        });
-        while (fireStoreRequestResponse.getData().isEmpty()) {
-        }
-        return fireStoreRequestResponse;
-    }
+    //             ExceptionUtils1.handleExceptionOnGui(applicationContext, applicationName, task.getException());
+
+    //             fireStoreRequestResponse.setStatus(-1);
+    //             fireStoreRequestResponse.setException(task.getException());
+    //         }
+    //     });
+    //     while (fireStoreRequestResponse.getData().isEmpty()) {
+    //     }
+    //     return fireStoreRequestResponse;
+    // }
 }
