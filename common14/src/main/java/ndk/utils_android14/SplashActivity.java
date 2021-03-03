@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import ndk.utils_android1.ActivityWithContexts;
-
 //TODO : Full screen splash
 //TODO : Develop tests
 
