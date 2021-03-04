@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
     <!--android:background="@drawable/gradient_background" >-->
 
-    <ImageView
+    <AppCompatImageView
         android:id="@+id/img_Logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,7 +13,7 @@
         android:contentDescription="@string/application_logo"
         android:foregroundGravity="center"
         android:scaleType="centerInside"
-        app:srcCompat="@drawable/ic_camera_black_720dp" />
+        android:src="@drawable/ic_camera_black_720dp" />
 
     <TextView
         android:id="@+id/text_Developer"
