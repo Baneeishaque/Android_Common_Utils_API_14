@@ -103,7 +103,7 @@ dependencies {
     
     implementation 'com.github.kimkevin:cachepot:1.2.0'
 
-    implementation project(path: ':Utils_1:common1')
+    implementation project(path: ':Utils1:common1')
     implementation project(path: ':Resources:common')
 
     testImplementation 'junit:junit:4.13.2'
