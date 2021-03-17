@@ -1,16 +1,5 @@
 package ndk.utils_android14;
 
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import ndk.utils_android1.FireStoreRequestResponse;
-import ndk.utils_android1.LogUtils;
-import ndk.utils_android1.ExceptionUtils1;
-
-import android.content.Context;
-import java.util.Map;
-
 public class UpdateUtils14 {
 
     //TODO : Not compatiable with SDK 14

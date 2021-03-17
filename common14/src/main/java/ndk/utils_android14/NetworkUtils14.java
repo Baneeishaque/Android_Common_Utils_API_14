@@ -1,39 +1,39 @@
 package ndk.utils_android14;
 
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
-import androidx.core.util.Pair;
-import androidx.appcompat.app.AppCompatActivity;
-import android.widget.EditText;
 import android.content.Context;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
-import org.json.JSONObject;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.Pair;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+
+import ndk.utils_android1.LogUtils;
+import ndk.utils_android1.NetworkUtils;
+import ndk.utils_android1.TextClearUtils;
+import ndk.utils_android1.ToastUtils;
 
 import static android.graphics.Color.RED;
 
-import ndk.utils_android1.LogUtils;
-import ndk.utils_android1.TextClearUtils;
-import ndk.utils_android1.NetworkUtils;
-import ndk.utils_android1.ToastUtils;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.ResponseHandler;
-import org.apache.http.impl.client.BasicResponseHandler;
-import org.apache.http.client.ClientProtocolException;
-
-import java.util.ArrayList;
-import java.io.UnsupportedEncodingException;
-import java.io.IOException;
-
 public class NetworkUtils14 {
-    
+
     private static FurtherActions furtherActions;
 
     public static void displayOfflineLongNoFabBottomSnackBar(View view, View.OnClickListener networkFunction) {
@@ -41,11 +41,6 @@ public class NetworkUtils14 {
                 networkFunction);
         snackbar.getView().setBackgroundColor(RED);
         snackbar.show();
-    }
-
-    public interface FurtherActions {
-
-        void onSuccess();
     }
 
     public static void handleJsonInsertionResponseAndSwitchWithFinishOrClearFields(String[] networkActionResponseArray, AppCompatActivity currentActivity, Class toSwitchActivity, EditText[] editTextsToClear, View viewToFocusOnError, String tag, int actionFlag, Pair[] nextClassExtras, FurtherActions furtherActions) {
@@ -119,13 +114,7 @@ public class NetworkUtils14 {
         }
     }
 
-    void handleJsonInsertionResponseAndSwitchWithFinishAndToggleView(String[] networkActionResponseArray, Class toSwitchActivity, View viewToFocusOnError, View viewToToggle, String tag, AppCompatActivity currentActivity) {
-
-        handleJsonInsertionResponseAndSwitchWithFinishOrClearFields(networkActionResponseArray, currentActivity, toSwitchActivity, new EditText[]{}, viewToFocusOnError, tag, 1, new Pair[]{}, furtherActions);
-        viewToToggle.setEnabled(true);
-    }
-
-        public static String[] performHttpClientPostTask(String url, Pair[] namePairValues) {
+    public static String[] performHttpClientPostTask(String url, Pair[] namePairValues) {
 
         try {
             DefaultHttpClient defaultHttpClient;
@@ -193,5 +182,16 @@ public class NetworkUtils14 {
         } else {
             ToastUtils.longToast(activityContext, "Internet is unavailable...");
         }
+    }
+
+    void handleJsonInsertionResponseAndSwitchWithFinishAndToggleView(String[] networkActionResponseArray, Class toSwitchActivity, View viewToFocusOnError, View viewToToggle, String tag, AppCompatActivity currentActivity) {
+
+        handleJsonInsertionResponseAndSwitchWithFinishOrClearFields(networkActionResponseArray, currentActivity, toSwitchActivity, new EditText[]{}, viewToFocusOnError, tag, 1, new Pair[]{}, furtherActions);
+        viewToToggle.setEnabled(true);
+    }
+
+    public interface FurtherActions {
+
+        void onSuccess();
     }
 }

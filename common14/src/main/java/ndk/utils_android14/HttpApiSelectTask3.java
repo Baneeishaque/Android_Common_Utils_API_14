@@ -49,7 +49,7 @@ public class HttpApiSelectTask3 extends AsyncTask<Void, Void, String[]> {
     @Override
     protected String[] doInBackground(Void... params) {
 
-        LogUtils.debug(TAG,"url is " + this.url);
+        LogUtils.debug(TAG, "url is " + this.url);
         return NetworkUtils14.performHttpClientPostTask(this.url, this.name_value_pair);
     }
 
@@ -109,11 +109,11 @@ public class HttpApiSelectTask3 extends AsyncTask<Void, Void, String[]> {
                         switch (json_array.getJSONObject(0).getString("status")) {
                             case "1":
                                 ToastUtils.longToast(context, "Error...");
-                                LogUtils.debug(TAG,"Error : " + json_array.getJSONObject(0).getInt("error_number") + ", " + json_array.getJSONObject(0).getInt("error"));
+                                LogUtils.debug(TAG, "Error : " + json_array.getJSONObject(0).getInt("error_number") + ", " + json_array.getJSONObject(0).getInt("error"));
                                 break;
                             case "2":
                                 if (this.background_flag) {
-                                    LogUtils.debug(TAG,"No Entries...");
+                                    LogUtils.debug(TAG, "No Entries...");
                                 } else {
                                     ToastUtils.longToast(context, "No Entries...");
                                 }
@@ -123,7 +123,7 @@ public class HttpApiSelectTask3 extends AsyncTask<Void, Void, String[]> {
                                 break;
                             default:
                                 ToastUtils.longToast(context, "Error...");
-                                LogUtils.debug(TAG,"Response : " + json_array);
+                                LogUtils.debug(TAG, "Response : " + json_array);
                                 break;
                         }
                     } else {
@@ -131,7 +131,7 @@ public class HttpApiSelectTask3 extends AsyncTask<Void, Void, String[]> {
                     }
                 } catch (JSONException e) {
                     ToastUtils.longToast(context, "Error...");
-                    LogUtils.debug(TAG,"Error : " + e.getLocalizedMessage());
+                    LogUtils.debug(TAG, "Error : " + e.getLocalizedMessage());
                 }
             }
         }

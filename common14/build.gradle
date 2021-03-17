@@ -4,7 +4,7 @@ android {
 
     compileSdkVersion 30
     buildToolsVersion '30.0.3'
-    useLibrary  'org.apache.http.legacy'
+    useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
 
@@ -15,9 +15,9 @@ android {
         versionName "1.0"
 
         multiDexEnabled true
-        
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        
+
     }
 
     buildTypes {
@@ -100,7 +100,7 @@ dependencies {
     // Declare the dependency for the Cloud Firestore library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-firestore'
-    
+
     implementation 'com.github.kimkevin:cachepot:1.2.0'
 
     implementation project(path: ':Utils1:common1')

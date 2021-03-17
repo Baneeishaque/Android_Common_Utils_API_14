@@ -30,7 +30,7 @@ public class ApplicationVCSUtils {
         if (file.exists()) {
             if (!file.delete()) {
 
-                LogUtils.debug(applicationName,"Deletion failure, please clear your downloads...");
+                LogUtils.debug(applicationName, "Deletion failure, please clear your downloads...");
                 if (!BuildConfig.DEBUG) {
                     ToastUtils.longToast(context, "Deletion failure, please clear your downloads...");
                 }
@@ -39,7 +39,7 @@ public class ApplicationVCSUtils {
 
         //get url of app on server
         //set download manager
-        LogUtils.debug(applicationName,"Update URL : " + updateUrl);
+        LogUtils.debug(applicationName, "Update URL : " + updateUrl);
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(updateUrl));
         request.setDescription("Downloading Update...");
         request.setTitle(applicationName + " " + versionName);
@@ -53,9 +53,9 @@ public class ApplicationVCSUtils {
 
         //set BroadcastReceiver to install app when apk file is downloaded
         BroadcastReceiver downloadCompleteBroadcastReceiver = new BroadcastReceiver() {
-            
+
             public void onReceive(Context context, Intent intent) {
-                
+
                 InstallApk.installApk(uri, downloadManager, downloadId, context, this);
             }
         };

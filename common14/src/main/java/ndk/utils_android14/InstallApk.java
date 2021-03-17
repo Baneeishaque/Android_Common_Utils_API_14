@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class InstallApk {
 
     public static void installApk(Uri uri, DownloadManager downloadManager, long downloadId, Context context, BroadcastReceiver download_complete_trigger) {
-        
+
         Intent install = new Intent(Intent.ACTION_VIEW);
         install.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         install.setDataAndType(uri, downloadManager.getMimeTypeForDownloadedFile(downloadId));

@@ -25,8 +25,8 @@ import ndk.utils_android1.SharedPreferencesUtils1;
 
 public abstract class RecyclerViewWithToolbarAndProgressBarActivity extends ActivityWithContexts {
 
-    private ProgressBar progressBar;
     public RecyclerView recyclerView;
+    private ProgressBar progressBar;
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -56,7 +56,7 @@ public abstract class RecyclerViewWithToolbarAndProgressBarActivity extends Acti
 
                 try {
 
-                    processJsonObjectInFetchedJsonArray(i,jsonArray.getJSONObject(i));
+                    processJsonObjectInFetchedJsonArray(i, jsonArray.getJSONObject(i));
                     viewRecyclerView();
 
                 } catch (JSONException exception) {

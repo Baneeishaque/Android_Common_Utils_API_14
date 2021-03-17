@@ -1,10 +1,10 @@
 package ndk.utils_android14;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import androidx.core.util.Pair;
 import android.content.Intent;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.Pair;
 
 import com.github.kimkevin.cachepot.CachePot;
 
@@ -53,35 +53,35 @@ public class ActivityUtils14 {
     }
 
     public static void startActivityWithIntegerExtrasAndFinish(Context activityContext, Class activity, Pair[] extras) {
-        
+
         startActivityForIntentWithFinish(activityContext, getIntentWithIntegerExtras(activityContext, activity, extras));
     }
-    
+
     public static void startActivityWithFinishAndTabIndex(Context activityContext, Class activity, int tabIndex) {
-        
+
         startActivityForIntentWithFinish(activityContext, getIntentWithIntegerExtras(activityContext, activity, new Pair[]{new Pair<>("tab_index", tabIndex)}));
     }
 
     public static void startActivityWithObjectPushAndIntegerExtras(Context activityContext, Class activity, Pair[] extras, Object objectToPush) {
-        
+
         CachePot.getInstance().push(objectToPush);
         ActivityUtils1.startActivityForIntent(activityContext, getIntentWithIntegerExtras(activityContext, activity, extras));
     }
 
     public static void startActivityWithObjectPushAndIntegerExtrasAndFinish(Context activityContext, Class activity, Pair[] extras, Object objectToPush) {
-        
+
         CachePot.getInstance().push(objectToPush);
         startActivityForIntentWithFinish(activityContext, getIntentWithIntegerExtras(activityContext, activity, extras));
     }
 
     public static void startActivityWithObjectPushAndOrigin(Context activityContext, Class activity, Object objectToPush, String origin) {
-        
+
         CachePot.getInstance().push(objectToPush);
         ActivityUtils1.startActivityForIntent(activityContext, constructIntentWithStringExtras(activityContext, activity, new Pair[]{new Pair<>("origin", origin)}));
     }
 
     public static void startActivityWithStringExtrasAndFinish(Context currentActivityContext, Class nextActivity, Pair[] nextActivityExtras) {
-        
+
         startActivityForIntentWithFinish(currentActivityContext, constructIntentWithStringExtras(currentActivityContext, nextActivity, nextActivityExtras));
     }
 
@@ -98,19 +98,19 @@ public class ActivityUtils14 {
     }
 
     public static void startActivityWithObjectPushAndFinishAndOrigin(Context activityContext, Class activity, Object objectToPush, String origin) {
-        
+
         startActivityWithObjectPushAndOrigin(activityContext, activity, objectToPush, origin);
         ((AppCompatActivity) activityContext).finish();
     }
-    
+
     public static void startActivityWithObjectPushAndFinish(Context activityContext, Class activity, Object objectToPush) {
-        
+
         CachePot.getInstance().push(objectToPush);
         startActivityForClassWithFinish(activityContext, activity);
     }
 
     public static void startActivityWithObjectPush(Context activityContext, Class activity, Object objectToPush) {
-        
+
         CachePot.getInstance().push(objectToPush);
         ActivityUtils1.startActivityForClass(activityContext, activity);
     }

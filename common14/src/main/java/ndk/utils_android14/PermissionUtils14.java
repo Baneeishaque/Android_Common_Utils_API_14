@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat;
 import static ndk.utils_android1.Permission_Utils.MY_PERMISSIONS_REQUEST_READ_CONTACTS;
 
 public class PermissionUtils14 {
-    
+
     void request_permision_with_explanation(Activity thisActivity) {
         // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(thisActivity,
