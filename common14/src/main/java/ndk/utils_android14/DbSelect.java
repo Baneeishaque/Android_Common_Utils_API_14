@@ -199,5 +199,11 @@ public class DbSelect extends AsyncTask<Void, Void, String[]> {
         public String configureTAG() {
             return TAG;
         }
+
+        @Override
+        public Context configureCurrentApplicationContext() {
+
+            return context;
+        }
     }
 }

@@ -1,9 +1,8 @@
-package ndk.kada;
+package ndk.utils_android14;
 
 import android.content.Context;
 
 import ndk.utils_android1.LogUtilsWrapper;
-import ndk.utils_android14.ActivityWithContexts;
 
 public abstract class ApplicationActivity extends ActivityWithContexts {
 
@@ -24,5 +23,5 @@ public abstract class ApplicationActivity extends ActivityWithContexts {
 
     public abstract String configureApplicationTag();
 
-    ApplicationLogUtils applicationLogUtils =new ApplicationLogUtils();
+    public ApplicationLogUtils applicationLogUtils = new ApplicationLogUtils();
 }
