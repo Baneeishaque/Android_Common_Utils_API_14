@@ -3,9 +3,9 @@ package ndk.utils_android14;
 import android.content.Context;
 import android.view.View;
 
-import ndk.utils_android1.NetworkUtils;
-import ndk.utils_android1.ProgressBarUtils;
-import ndk.utils_android1.ToastUtils;
+import ndk.utils_android1.NetworkUtils1;
+import ndk.utils_android1.ProgressBarUtils1;
+import ndk.utils_android1.ToastUtils1;
 
 public class DbSelectWrapper {
 
@@ -21,14 +21,14 @@ public class DbSelectWrapper {
 
     public static void executeDbSelectHttpGet(Context context, View progressBar, View view, DbSelect dbSelect) {
 
-        if (NetworkUtils.isOnline(context)) {
+        if (NetworkUtils1.isOnline(context)) {
 
-            ProgressBarUtils.showProgress(true, context, progressBar, view);
+            ProgressBarUtils1.showProgress(true, context, progressBar, view);
             dbSelect.execute();
 
         } else {
 
-            ToastUtils.longToast(context, "Internet is unavailable...");
+            ToastUtils1.longToast(context, "Internet is unavailable...");
         }
     }
 }

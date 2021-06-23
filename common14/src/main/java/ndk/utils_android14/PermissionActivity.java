@@ -13,7 +13,7 @@ import ndk.utils_android1.PermissionAcceptedActions;
 import ndk.utils_android1.PermissionDeniedActions;
 import ndk.utils_android1.PermissionGrantedActions;
 
-public abstract class PermissionActivity extends ActivityWithContexts {
+public abstract class PermissionActivity extends ActivityWithContexts14 {
 
     PermissionAcceptedActions permissionAcceptedActions;
     PermissionDeniedActions permissionDeniedActions;

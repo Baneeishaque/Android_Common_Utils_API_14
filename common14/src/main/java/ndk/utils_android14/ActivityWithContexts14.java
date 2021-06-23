@@ -6,7 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ActivityWithContexts extends AppCompatActivity {
+public class ActivityWithContexts14 extends AppCompatActivity {
 
     public Context currentActivityContext = this, currentApplicationContext;
     public AppCompatActivity currentAppCompatActivity = this;

@@ -7,54 +7,54 @@ import org.apache.http.NameValuePair;
 
 import java.util.ArrayList;
 
-import ndk.utils_android1.NetworkUtils;
-import ndk.utils_android1.ProgressBarUtils;
-import ndk.utils_android1.ToastUtils;
+import ndk.utils_android1.NetworkUtils1;
+import ndk.utils_android1.ProgressBarUtils1;
+import ndk.utils_android1.ToastUtils1;
 
 public class DbInsertUpdateDeleteWrapper {
 
     public static void executeDbInsertUpdateDeletePostWithParameters(String taskURL, ArrayList<NameValuePair> parameters, Context context, View progressBar, View view, String applicationName, HttpApiSelectTask3.AsyncResponseJSONObject asyncResponseJsonObject) {
 
-        if (NetworkUtils.isOnline(context)) {
+        if (NetworkUtils1.isOnline(context)) {
 
-            ProgressBarUtils.showProgress(true, context, progressBar, view);
+            ProgressBarUtils1.showProgress(true, context, progressBar, view);
 
             DbInsertUpdateDelete dbInsertUpdateDelete = new DbInsertUpdateDelete(taskURL, parameters, context, progressBar, view, applicationName, asyncResponseJsonObject);
             dbInsertUpdateDelete.execute();
 
         } else {
 
-            ToastUtils.longToast(context, "Internet is unavailable...");
+            ToastUtils1.longToast(context, "Internet is unavailable...");
         }
     }
 
     public static void executeDbInsertUpdateDeletePostWithParameters(String taskURL, ArrayList<NameValuePair> parameters, Context context, View progressBar, View view, String applicationName, HttpApiSelectTask3.AsyncResponseJSONArray asyncResponseJsonArray) {
 
-        if (NetworkUtils.isOnline(context)) {
+        if (NetworkUtils1.isOnline(context)) {
 
-            ProgressBarUtils.showProgress(true, context, progressBar, view);
+            ProgressBarUtils1.showProgress(true, context, progressBar, view);
 
             DbInsertUpdateDelete dbInsertUpdateDelete = new DbInsertUpdateDelete(taskURL, parameters, context, progressBar, view, applicationName, asyncResponseJsonArray);
             dbInsertUpdateDelete.execute();
 
         } else {
 
-            ToastUtils.longToast(context, "Internet is unavailable...");
+            ToastUtils1.longToast(context, "Internet is unavailable...");
         }
     }
 
     public static void executeDbInsertUpdateDeletePostWithParameters(String taskURL, ArrayList<NameValuePair> parameters, Context context, View progressBar, View view, String applicationName, HttpApiSelectTask3.AsyncResponse asyncResponse) {
 
-        if (NetworkUtils.isOnline(context)) {
+        if (NetworkUtils1.isOnline(context)) {
 
-            ProgressBarUtils.showProgress(true, context, progressBar, view);
+            ProgressBarUtils1.showProgress(true, context, progressBar, view);
 
             DbInsertUpdateDelete dbInsertUpdateDelete = new DbInsertUpdateDelete(taskURL, parameters, context, progressBar, view, applicationName, asyncResponse);
             dbInsertUpdateDelete.execute();
 
         } else {
 
-            ToastUtils.longToast(context, "Internet is unavailable...");
+            ToastUtils1.longToast(context, "Internet is unavailable...");
         }
     }
 }

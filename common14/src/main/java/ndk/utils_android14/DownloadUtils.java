@@ -11,7 +11,7 @@ import android.util.Log;
 
 import java.io.File;
 
-import ndk.utils_android1.ToastUtils;
+import ndk.utils_android1.ToastUtils1;
 
 public class DownloadUtils {
     public static void download_apk_to_downloads(String application_name, float version_name, String update_URL, final Context context, String TAG) {
@@ -26,7 +26,7 @@ public class DownloadUtils {
         File file = new File(destination);
         if (file.exists()) {
             if (!file.delete()) {
-                ToastUtils.longToast(context, "Deletion failure, please clear your downloads...");
+                ToastUtils1.longToast(context, "Deletion failure, please clear your downloads...");
             }
         }
 

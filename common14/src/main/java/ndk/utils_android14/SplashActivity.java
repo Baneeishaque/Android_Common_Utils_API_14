@@ -7,7 +7,7 @@ import android.os.Handler;
 //TODO : Full screen splash
 //TODO : Develop tests
 
-public abstract class SplashActivity extends ActivityWithContexts {
+public abstract class SplashActivity extends ActivityWithContexts14 {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

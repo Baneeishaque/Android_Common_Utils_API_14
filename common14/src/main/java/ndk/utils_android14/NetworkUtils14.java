@@ -25,10 +25,10 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-import ndk.utils_android1.LogUtils;
-import ndk.utils_android1.NetworkUtils;
+import ndk.utils_android1.LogUtils1;
+import ndk.utils_android1.NetworkUtils1;
 import ndk.utils_android1.TextClearUtils;
-import ndk.utils_android1.ToastUtils;
+import ndk.utils_android1.ToastUtils1;
 
 import static android.graphics.Color.RED;
 
@@ -47,13 +47,13 @@ public class NetworkUtils14 {
 
         NetworkUtils14.furtherActions = furtherActions;
 
-        LogUtils.debug(tag, "Network Action Response Index 0 : " + networkActionResponseArray[0]);
-        LogUtils.debug(tag, "Network Action Response Index 1 : " + networkActionResponseArray[1]);
+        LogUtils1.debug(tag, "Network Action Response Index 0 : " + networkActionResponseArray[0]);
+        LogUtils1.debug(tag, "Network Action Response Index 1 : " + networkActionResponseArray[1]);
 
         if (networkActionResponseArray[0].equals("1")) {
 
             Toast.makeText(currentActivity, "Error...", Toast.LENGTH_LONG).show();
-            LogUtils.debug(tag, "Error, Network Action Response Index 1 : " + networkActionResponseArray[1]);
+            LogUtils1.debug(tag, "Error, Network Action Response Index 1 : " + networkActionResponseArray[1]);
 
         } else {
 
@@ -85,12 +85,12 @@ public class NetworkUtils14 {
                                 break;
 
                             case 5: // No Action
-                                LogUtils.debug(tag, "Further Action...");
+                                LogUtils1.debug(tag, "Further Action...");
                                 furtherActions.onSuccess();
                                 break;
 
                             case 6: // clear fields & further actions
-                                LogUtils.debug(tag, "Further Action...");
+                                LogUtils1.debug(tag, "Further Action...");
                                 TextClearUtils.resetFields(editTextsToClear);
                                 furtherActions.onSuccess();
                                 break;
@@ -99,17 +99,17 @@ public class NetworkUtils14 {
 
                     case "1":
                         Toast.makeText(currentActivity, "Error...", Toast.LENGTH_LONG).show();
-                        LogUtils.debug(tag, "Error : " + json.getString("error"));
+                        LogUtils1.debug(tag, "Error : " + json.getString("error"));
                         viewToFocusOnError.requestFocus();
                         break;
 
                     default:
                         Toast.makeText(currentActivity, "Error...", Toast.LENGTH_LONG).show();
-                        LogUtils.debug(tag, "Error : Application_Utils json");
+                        LogUtils1.debug(tag, "Error : Application_Utils json");
                 }
             } catch (JSONException e) {
                 Toast.makeText(currentActivity, "Error...", Toast.LENGTH_LONG).show();
-                LogUtils.debug(tag, "Error : " + e.getLocalizedMessage());
+                LogUtils1.debug(tag, "Error : " + e.getLocalizedMessage());
             }
         }
     }
@@ -156,31 +156,31 @@ public class NetworkUtils14 {
     }
 
     public static void checkNetworkThenStartActivityWithStringExtras(Context context, Class activity, Pair[] extras, boolean forResultFlag, int requestCode) {
-        if (NetworkUtils.isOnline(context)) {
+        if (NetworkUtils1.isOnline(context)) {
             ActivityUtils14.startActivityForClassWithStringExtras(context, activity, extras);
         } else {
-            ToastUtils.longToast(context, "Internet is unavailable");
+            ToastUtils1.longToast(context, "Internet is unavailable");
         }
     }
 
     public static void startActivityWithNetworkAndStringExtras(Context activityContext, Class activity, Pair[] stringExtras) {
 
-        if (NetworkUtils.isOnline(activityContext)) {
+        if (NetworkUtils1.isOnline(activityContext)) {
 
             ActivityUtils14.startActivityForClassWithStringExtras(activityContext, activity, stringExtras);
 
         } else {
 
-            ToastUtils.longToast(activityContext, "Internet is unavailable...");
+            ToastUtils1.longToast(activityContext, "Internet is unavailable...");
         }
     }
 
     public static void startActivityWithNetworkStringExtrasAndRequestCode(Context activityContext, Class activity, Pair[] stringExtras, int requestCode) {
 
-        if (NetworkUtils.isOnline(activityContext)) {
+        if (NetworkUtils1.isOnline(activityContext)) {
             ActivityUtils14.startActivityForResultWithStringExtras(activityContext, activity, stringExtras, requestCode);
         } else {
-            ToastUtils.longToast(activityContext, "Internet is unavailable...");
+            ToastUtils1.longToast(activityContext, "Internet is unavailable...");
         }
     }
 

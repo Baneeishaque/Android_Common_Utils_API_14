@@ -12,10 +12,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import ndk.utils_android1.LogUtils;
-import ndk.utils_android1.NetworkUtils;
-import ndk.utils_android1.ProgressBarUtils;
-import ndk.utils_android1.ToastUtils;
+import ndk.utils_android1.LogUtils1;
+import ndk.utils_android1.NetworkUtils1;
+import ndk.utils_android1.ProgressBarUtils1;
+import ndk.utils_android1.ToastUtils1;
 
 // TODO : Integrate with ndk.utils_android3.DbSelect
 
@@ -49,7 +49,7 @@ public class HttpApiSelectTask3 extends AsyncTask<Void, Void, String[]> {
     @Override
     protected String[] doInBackground(Void... params) {
 
-        LogUtils.debug(TAG, "url is " + this.url);
+        LogUtils1.debug(TAG, "url is " + this.url);
         return NetworkUtils14.performHttpClientPostTask(this.url, this.name_value_pair);
     }
 
@@ -57,7 +57,7 @@ public class HttpApiSelectTask3 extends AsyncTask<Void, Void, String[]> {
 
         if (this.progressFlag == 0) {
 
-            ProgressBarUtils.showProgress(false, this.context, this.progressBar, this.form);
+            ProgressBarUtils1.showProgress(false, this.context, this.progressBar, this.form);
         }
 
         if (this.responseFlag == 1) {
@@ -66,7 +66,7 @@ public class HttpApiSelectTask3 extends AsyncTask<Void, Void, String[]> {
             Log.d(this.TAG, "Network Action response is " + networkActionResponseArray[1]);
             if (networkActionResponseArray[0].equals("1")) {
 
-                NetworkUtils.displayFriendlyExceptionMessage(this.context, networkActionResponseArray[1]);
+                NetworkUtils1.displayFriendlyExceptionMessage(this.context, networkActionResponseArray[1]);
                 Log.d(this.TAG, "Network Action response is " + networkActionResponseArray[1]);
                 this.asyncResponse.processFinish("exception");
             } else {
@@ -77,14 +77,14 @@ public class HttpApiSelectTask3 extends AsyncTask<Void, Void, String[]> {
             Log.d(this.TAG, "Network Action response is " + networkActionResponseArray[1]);
             if (networkActionResponseArray[0].equals("1")) {
 
-                NetworkUtils.displayFriendlyExceptionMessage(this.context, networkActionResponseArray[1]);
+                NetworkUtils1.displayFriendlyExceptionMessage(this.context, networkActionResponseArray[1]);
                 Log.d(this.TAG, "Network Action response is " + networkActionResponseArray[1]);
             } else {
                 try {
                     JSONObject json_object = new JSONObject(networkActionResponseArray[1]);
                     this.asyncResponseJSONObject.processFinish(json_object);
                 } catch (JSONException var3) {
-                    ToastUtils.longToast(context, "Error...");
+                    ToastUtils1.longToast(context, "Error...");
                     Log.d(this.TAG, "Error : " + var3.getLocalizedMessage());
                 }
             }
@@ -95,7 +95,7 @@ public class HttpApiSelectTask3 extends AsyncTask<Void, Void, String[]> {
                 if (this.background_flag) {
                     Log.d(this.TAG, "Error...");
                 } else {
-                    ToastUtils.longToast(context, "Error...");
+                    ToastUtils1.longToast(context, "Error...");
                 }
 
                 Log.d(this.TAG, "Network Action Response Array 1 : " + networkActionResponseArray[1]);
@@ -108,30 +108,30 @@ public class HttpApiSelectTask3 extends AsyncTask<Void, Void, String[]> {
                     if (this.splashFlag != 1 && this.error_flag) {
                         switch (json_array.getJSONObject(0).getString("status")) {
                             case "1":
-                                ToastUtils.longToast(context, "Error...");
-                                LogUtils.debug(TAG, "Error : " + json_array.getJSONObject(0).getInt("error_number") + ", " + json_array.getJSONObject(0).getInt("error"));
+                                ToastUtils1.longToast(context, "Error...");
+                                LogUtils1.debug(TAG, "Error : " + json_array.getJSONObject(0).getInt("error_number") + ", " + json_array.getJSONObject(0).getInt("error"));
                                 break;
                             case "2":
                                 if (this.background_flag) {
-                                    LogUtils.debug(TAG, "No Entries...");
+                                    LogUtils1.debug(TAG, "No Entries...");
                                 } else {
-                                    ToastUtils.longToast(context, "No Entries...");
+                                    ToastUtils1.longToast(context, "No Entries...");
                                 }
                                 break;
                             case "0":
                                 this.asyncResponseJSONArray.processFinish(json_array);
                                 break;
                             default:
-                                ToastUtils.longToast(context, "Error...");
-                                LogUtils.debug(TAG, "Response : " + json_array);
+                                ToastUtils1.longToast(context, "Error...");
+                                LogUtils1.debug(TAG, "Response : " + json_array);
                                 break;
                         }
                     } else {
                         this.asyncResponseJSONArray.processFinish(json_array);
                     }
                 } catch (JSONException e) {
-                    ToastUtils.longToast(context, "Error...");
-                    LogUtils.debug(TAG, "Error : " + e.getLocalizedMessage());
+                    ToastUtils1.longToast(context, "Error...");
+                    LogUtils1.debug(TAG, "Error : " + e.getLocalizedMessage());
                 }
             }
         }
@@ -139,7 +139,7 @@ public class HttpApiSelectTask3 extends AsyncTask<Void, Void, String[]> {
 
     protected void onCancelled() {
         if (this.progressFlag == 0) {
-            ProgressBarUtils.showProgress(false, this.context, this.progressBar, this.form);
+            ProgressBarUtils1.showProgress(false, this.context, this.progressBar, this.form);
         }
     }
 

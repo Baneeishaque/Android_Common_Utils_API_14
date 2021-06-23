@@ -10,8 +10,8 @@ import android.os.Environment;
 
 import java.io.File;
 
-import ndk.utils_android1.LogUtils;
-import ndk.utils_android1.ToastUtils;
+import ndk.utils_android1.LogUtils1;
+import ndk.utils_android1.ToastUtils1;
 
 public class ApplicationVCSUtils {
 
@@ -30,16 +30,16 @@ public class ApplicationVCSUtils {
         if (file.exists()) {
             if (!file.delete()) {
 
-                LogUtils.debug(applicationName, "Deletion failure, please clear your downloads...");
+                LogUtils1.debug(applicationName, "Deletion failure, please clear your downloads...");
                 if (!BuildConfig.DEBUG) {
-                    ToastUtils.longToast(context, "Deletion failure, please clear your downloads...");
+                    ToastUtils1.longToast(context, "Deletion failure, please clear your downloads...");
                 }
             }
         }
 
         //get url of app on server
         //set download manager
-        LogUtils.debug(applicationName, "Update URL : " + updateUrl);
+        LogUtils1.debug(applicationName, "Update URL : " + updateUrl);
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(updateUrl));
         request.setDescription("Downloading Update...");
         request.setTitle(applicationName + " " + versionName);

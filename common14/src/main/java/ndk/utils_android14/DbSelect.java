@@ -12,10 +12,10 @@ import org.json.JSONObject;
 
 import ndk.utils_android1.ExceptionUtils1;
 import ndk.utils_android1.HttpGet;
-import ndk.utils_android1.LogUtilsWrapper;
-import ndk.utils_android1.NetworkUtils;
-import ndk.utils_android1.ProgressBarUtils;
-import ndk.utils_android1.ToastUtils;
+import ndk.utils_android1.LogUtilsWrapper1;
+import ndk.utils_android1.NetworkUtils1;
+import ndk.utils_android1.ProgressBarUtils1;
+import ndk.utils_android1.ToastUtils1;
 
 public class DbSelect extends AsyncTask<Void, Void, String[]> {
 
@@ -81,7 +81,7 @@ public class DbSelect extends AsyncTask<Void, Void, String[]> {
 
         if (isProgressBarPresent) {
 
-            ProgressBarUtils.showProgress(false, context, progressBar, form);
+            ProgressBarUtils1.showProgress(false, context, progressBar, form);
         }
 
         temporaryLogUtilsWrapper.debug("Network Action status is " + networkActionResponseArray[0]);
@@ -135,7 +135,7 @@ public class DbSelect extends AsyncTask<Void, Void, String[]> {
 
                             if (isForeGround) {
 
-                                ToastUtils.longToast(context, "No Entries...");
+                                ToastUtils1.longToast(context, "No Entries...");
                             }
                             temporaryLogUtilsWrapper.debug("No Entries...");
 
@@ -177,8 +177,8 @@ public class DbSelect extends AsyncTask<Void, Void, String[]> {
             //TODO : Add more error scenarios
             //TODO : Feedback from below error toast
 
-            NetworkUtils.displayFriendlyExceptionMessage(context, errorMessage);
-            ToastUtils.longToast(context, "Error...");
+            NetworkUtils1.displayFriendlyExceptionMessage(context, errorMessage);
+            ToastUtils1.longToast(context, "Error...");
         }
 
         temporaryLogUtilsWrapper.debug("Error...");
@@ -188,12 +188,12 @@ public class DbSelect extends AsyncTask<Void, Void, String[]> {
 
         if (isProgressBarPresent) {
 
-            ProgressBarUtils.showProgress(false, this.context, this.progressBar, this.form);
+            ProgressBarUtils1.showProgress(false, this.context, this.progressBar, this.form);
         }
     }
 
     //    TODO : Implement as Interface with default methods
-    class TemporaryLogUtilsWrapper extends LogUtilsWrapper {
+    class TemporaryLogUtilsWrapper extends LogUtilsWrapper1 {
 
         @Override
         public String configureTAG() {

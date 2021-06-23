@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import ndk.utils_android1.ExceptionUtils1;
 import ndk.utils_android1.SharedPreferencesUtils1;
 
-public abstract class RecyclerViewWithToolbarAndProgressBarActivity extends ActivityWithContexts {
+public abstract class RecyclerViewWithToolbarAndProgressBarActivity extends ActivityWithContexts14 {
 
     public RecyclerView recyclerView;
     private ProgressBar progressBar;
