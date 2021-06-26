@@ -9,12 +9,12 @@ import ndk.utils_android1.ToastUtils1;
 
 public class DbSelectWrapper {
 
-    public static void executeDbSelectHttpGet(String taskURL, Context context, View progressBar, View view, String applicationName, HttpApiSelectTask3.AsyncResponseJSONArray asyncResponseJsonArray) {
+    public static void executeDbSelectHttpGet(String taskURL, Context context, View progressBar, View view, String applicationName, HttpApiSelectTask14.AsyncResponseJSONArray asyncResponseJsonArray) {
 
         executeDbSelectHttpGet(context, progressBar, view, new DbSelect(taskURL, context, progressBar, view, applicationName, asyncResponseJsonArray));
     }
 
-    public static void executeDbSelectHttpGet(String taskURL, Context context, View progressBar, View view, String applicationName, HttpApiSelectTask3.AsyncResponseJSONObject asyncResponseJsonObject) {
+    public static void executeDbSelectHttpGet(String taskURL, Context context, View progressBar, View view, String applicationName, HttpApiSelectTask14.AsyncResponseJSONObject asyncResponseJsonObject) {
 
         executeDbSelectHttpGet(context, progressBar, view, new DbSelect(taskURL, context, progressBar, view, applicationName, asyncResponseJsonObject));
     }
