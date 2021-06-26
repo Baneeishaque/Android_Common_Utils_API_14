@@ -12,7 +12,7 @@ import java.util.Objects;
 
 import ndk.utils_android1.ActivityUtils1;
 
-public class ActivityUtils14 extends ActivityUtils1 {
+public class ActivityUtils14 {
 
     public static Intent constructIntentWithStringExtras(Context currentActivityContext, Class nextActivityClass, Pair[] nextActivityExtras) {
 
