@@ -50,7 +50,7 @@ public abstract class RecyclerViewWithToolbarAndProgressBarActivity extends Acti
 
     public void fetchData() {
 
-        HttpApiSelectTask3.AsyncResponseJSONArray httpApiGetDbSelectTaskResponseHandler = jsonArray -> {
+        HttpApiSelectTask14.AsyncResponseJSONArray httpApiGetDbSelectTaskResponseHandler = jsonArray -> {
 
             for (int i = 1; i < jsonArray.length(); i++) {
 
@@ -65,7 +65,7 @@ public abstract class RecyclerViewWithToolbarAndProgressBarActivity extends Acti
                 }
             }
         };
-        HttpApiSelectTaskWrapper3.execute(configureFetchUrl(), this, progressBar, recyclerView, configureApplicationName(), new Pair[]{}, httpApiGetDbSelectTaskResponseHandler);
+        HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithParametersAndStatusCheckOnAsyncResponseJsonArrayFirstElement(configureFetchUrl(), new Pair[]{}, this, progressBar, recyclerView, configureApplicationName(), httpApiGetDbSelectTaskResponseHandler);
     }
 
     public abstract String configureFetchUrl();
