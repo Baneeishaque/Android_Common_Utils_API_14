@@ -18,8 +18,7 @@ public abstract class ApplicationActivity14 extends ActivityWithContexts14 {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        applicationSharedPreferences = SharedPreferencesUtils1.getSharedPreferences(currentApplicationContext, configureApplicationTag());
-
+        applicationSharedPreferences = SharedPreferencesUtils1.getSharedPreferences(currentApplicationContext, configureCurrentApplicationName());
     }
 
     public class ApplicationLogUtils extends LogUtilsWrapper1 {
@@ -27,7 +26,7 @@ public abstract class ApplicationActivity14 extends ActivityWithContexts14 {
         @Override
         public String configureApplicationTag() {
 
-            return this.configureApplicationTag();
+            return configureCurrentApplicationName();
         }
 
         @Override
@@ -44,11 +43,11 @@ public abstract class ApplicationActivity14 extends ActivityWithContexts14 {
         @Override
         public String configureApplicationName() {
 
-            return configureApplicationTag();
+            return configureCurrentApplicationName();
         }
     }
 
     public ApplicationSpecification applicationSpecification = new ApplicationSpecification();
-    
-    public abstract String configureApplicationTag();
+
+    public abstract String configureCurrentApplicationName();
 }
