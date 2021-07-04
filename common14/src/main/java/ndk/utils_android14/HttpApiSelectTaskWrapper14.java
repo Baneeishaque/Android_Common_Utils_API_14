@@ -36,4 +36,17 @@ public class HttpApiSelectTaskWrapper14 {
             ToastUtils1.longToast(context, "Internet is unavailable...");
         }
     }
+
+    public static void executeNonSplashForegroundPostWithParameters(String task_URL, Pair[] nameValuePairs, Context context, View progressView, View loginFormView, String applicationName, HttpApiSelectTask14.AsyncResponseJSONObject asyncResponseJSONObject) {
+
+        if (NetworkUtils1.isOnline(context)) {
+
+            ProgressBarUtils1.showProgress(true, context, progressView, loginFormView);
+            new HttpApiSelectTask14(task_URL, nameValuePairs, context, progressView, loginFormView, applicationName, asyncResponseJSONObject).execute();
+
+        } else {
+
+            ToastUtils1.longToast(context, "Internet is unavailable...");
+        }
+    }
 }

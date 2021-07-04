@@ -91,6 +91,18 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
         this.isStatusCheckOnAsyncResponseJsonArrayFirstElementEnabled = isStatusCheckOnAsyncResponseJsonArrayFirstElementEnabled;
     }
 
+    public HttpApiSelectTask14(String url, Pair[] nameValuePairs, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONObject asyncResponseJSONObject) {
+
+        this.url = url;
+        this.context = context;
+        this.progressBar = progressBar;
+        this.form = form;
+        this.applicationName = applicationName;
+        this.nameValuePairs = nameValuePairs;
+        this.asyncResponseJSONObject = asyncResponseJSONObject;
+        this.responseFlag = 2;
+    }
+
     @Override
     protected String[] doInBackground(Void... params) {
 
