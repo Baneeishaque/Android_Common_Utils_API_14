@@ -24,6 +24,20 @@ public class HttpApiSelectTaskWrapper14 {
         }
     }
 
+    public static void executeNonSplashForegroundPostWithOutParametersAndStatusCheckOnAsyncResponseJsonArrayFirstElement(String task_URL, Context context, View progressView, View loginFormView, String applicationName, HttpApiSelectTask14.AsyncResponseJSONArray asyncResponseJSONArray) {
+
+        if (NetworkUtils1.isOnline(context)) {
+
+            ProgressBarUtils1.showProgress(true, context, progressView, loginFormView);
+            new HttpApiSelectTask14(task_URL, context, progressView, loginFormView, applicationName, asyncResponseJSONArray).execute();
+
+        } else {
+
+            ToastUtils1.longToast(context, "Internet is unavailable...");
+        }
+    }
+
+
     public static void executeNonSplashForegroundPostWithParametersAndWithoutStatusCheckOnAsyncResponseJsonArrayFirstElement(String task_URL, Pair[] nameValuePairs, Context context, View progressView, View loginFormView, String applicationName, HttpApiSelectTask14.AsyncResponseJSONArray asyncResponseJSONArray) {
 
         if (NetworkUtils1.isOnline(context)) {

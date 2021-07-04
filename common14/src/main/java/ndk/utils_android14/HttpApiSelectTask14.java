@@ -48,7 +48,7 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
     private View form;
 
     //TODO : Migrate to Java Tuples
-    private Pair[] nameValuePairs;
+    private Pair[] nameValuePairs = new Pair[]{};
 
     //progressFlag = 0 means has progressBar
     //progressFlag = nonZero means no progressBar
@@ -76,6 +76,16 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
         this.form = form;
         this.applicationName = applicationName;
         this.nameValuePairs = nameValuePairs;
+        this.asyncResponseJSONArray = asyncResponseJSONArray;
+    }
+
+    public HttpApiSelectTask14(String url, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONArray asyncResponseJSONArray) {
+
+        this.url = url;
+        this.context = context;
+        this.progressBar = progressBar;
+        this.form = form;
+        this.applicationName = applicationName;
         this.asyncResponseJSONArray = asyncResponseJSONArray;
     }
 
