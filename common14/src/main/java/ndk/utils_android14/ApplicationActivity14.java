@@ -25,9 +25,9 @@ public abstract class ApplicationActivity14 extends ActivityWithContexts14 {
     public class ApplicationLogUtils extends LogUtilsWrapper1 {
 
         @Override
-        public String configureTAG() {
+        public String configureApplicationTag() {
 
-            return configureApplicationTag();
+            return this.configureApplicationTag();
         }
 
         @Override

@@ -216,7 +216,7 @@ public class DbInsertUpdateDelete extends AsyncTask<Void, Void, String[]> {
     class TemporaryLogUtilsWrapper extends LogUtilsWrapper1 {
 
         @Override
-        public String configureTAG() {
+        public String configureApplicationTag() {
             return TAG;
         }
 
