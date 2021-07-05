@@ -31,10 +31,16 @@ public class HttpPostUtils14 {
     public static String toStringOnStringPairs(Pair[] parameterPairs) {
 
         StringBuilder result = new StringBuilder();
-        for (Pair parameterPair : parameterPairs) {
+        for (int i = 0; i < parameterPairs.length; i++) {
 
-            result.append(parameterPair.first != null ? parameterPair.first.toString() : "").append(" : ").append(parameterPair.second != null ? parameterPair.second.toString() : "").append(", ");
+            if (i == 0) {
+
+                result = result.append(parameterPairs[i].first != null ? parameterPairs[i].first.toString() : "").append(" : ").append(parameterPairs[i].second != null ? parameterPairs[i].second.toString() : "");
+            } else {
+
+                result = result.append(", ").append(parameterPairs[i].first != null ? parameterPairs[i].first.toString() : "").append(" : ").append(parameterPairs[i].second != null ? parameterPairs[i].second.toString() : "");
+            }
         }
-        return StringUtils1.removeLast2Characters(result.toString());
+        return result.toString();
     }
 }
