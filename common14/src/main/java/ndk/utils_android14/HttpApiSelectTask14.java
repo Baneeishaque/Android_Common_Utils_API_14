@@ -12,6 +12,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import ndk.utils_android1.LogUtils1;
 import ndk.utils_android1.NetworkUtils1;
 import ndk.utils_android1.ProgressBarUtils1;
@@ -101,6 +103,9 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
         this.isStatusCheckOnAsyncResponseJsonArrayFirstElementEnabled = isStatusCheckOnAsyncResponseJsonArrayFirstElementEnabled;
     }
 
+    boolean isJavaTuplesUsedForNameValuePairs = false;
+    ArrayList<org.javatuples.Pair<String, String>> nameValuePairsInJavaTuples = new ArrayList<>();
+
     public HttpApiSelectTask14(String url, Pair[] nameValuePairs, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONObject asyncResponseJSONObject) {
 
         this.url = url;
@@ -113,11 +118,32 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
         this.responseFlag = 2;
     }
 
+    public HttpApiSelectTask14(String url, ArrayList<org.javatuples.Pair<String, String>> nameValuePairsInJavaTuples, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONObject asyncResponseJSONObject) {
+
+        this.url = url;
+        this.context = context;
+        this.progressBar = progressBar;
+        this.form = form;
+        this.applicationName = applicationName;
+        this.nameValuePairsInJavaTuples = nameValuePairsInJavaTuples;
+        this.asyncResponseJSONObject = asyncResponseJSONObject;
+        this.responseFlag = 2;
+        this.isJavaTuplesUsedForNameValuePairs = true;
+    }
+
     @Override
     protected String[] doInBackground(Void... params) {
 
-        LogUtils1.debug(applicationName, "Url : " + url + "\n" + HttpPostUtils14.toStringOnNameValuePairs(nameValuePairs));
-        return NetworkUtils14.performHttpClientPostTask(url, nameValuePairs);
+        if (isJavaTuplesUsedForNameValuePairs) {
+
+            LogUtils1.debug(applicationName, "Url : " + url + "\n" + HttpPostUtils14.toStringOnNameValuePairsInJavaTuples(nameValuePairsInJavaTuples));
+            return NetworkUtils14.performHttpClientPostTask(url, nameValuePairsInJavaTuples);
+
+        } else {
+
+            LogUtils1.debug(applicationName, "Url : " + url + "\n" + HttpPostUtils14.toStringOnNameValuePairs(nameValuePairs));
+            return NetworkUtils14.performHttpClientPostTask(url, nameValuePairs);
+        }
     }
 
     protected void onPostExecute(String[] networkActionResponseArray) {

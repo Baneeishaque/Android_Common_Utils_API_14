@@ -106,6 +106,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore'
 
     implementation 'com.github.kimkevin:cachepot:1.2.0'
+    implementation 'org.javatuples:javatuples:1.2'
 
     implementation project(path: ':Utils1:common1')
     implementation project(path: ':Resources:common')

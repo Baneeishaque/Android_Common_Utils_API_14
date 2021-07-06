@@ -156,6 +156,48 @@ public class NetworkUtils14 {
         }
     }
 
+    public static String[] performHttpClientPostTask(String url, ArrayList<org.javatuples.Pair<String, String>> namePairValuesInJavaTuples) {
+
+        try {
+            DefaultHttpClient defaultHttpClient;
+            HttpPost httpPost;
+            ArrayList<NameValuePair> nameValuePairs;
+            String networkActionResponse;
+
+            defaultHttpClient = new DefaultHttpClient();
+            httpPost = new HttpPost(url);
+
+            if (namePairValuesInJavaTuples.size() != 0) {
+
+                //TODO : Use HttpPostUtils
+                nameValuePairs = new ArrayList<>(namePairValuesInJavaTuples.size());
+
+                for (org.javatuples.Pair<String, String> namePairValueInJavaTuples : namePairValuesInJavaTuples) {
+
+                    nameValuePairs.add(new BasicNameValuePair(namePairValueInJavaTuples.getValue0(), namePairValueInJavaTuples.getValue1()));
+                }
+
+                httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            }
+
+            ResponseHandler<String> basicResponseHandler = new BasicResponseHandler();
+            networkActionResponse = defaultHttpClient.execute(httpPost, basicResponseHandler);
+            return new String[]{"0", networkActionResponse};
+
+        } catch (UnsupportedEncodingException e) {
+
+            return new String[]{"1", "UnsupportedEncodingException : " + e.getLocalizedMessage()};
+
+        } catch (ClientProtocolException e) {
+
+            return new String[]{"1", "ClientProtocolException : " + e.getLocalizedMessage()};
+
+        } catch (IOException e) {
+
+            return new String[]{"1", "IOException : " + e.getLocalizedMessage()};
+        }
+    }
+
     public static void checkNetworkThenStartActivityWithStringExtras(Context context, Class activity, Pair[] extras, boolean forResultFlag, int requestCode) {
         if (NetworkUtils1.isOnline(context)) {
             ActivityUtils14.startActivityForClassWithStringExtras(context, activity, extras);

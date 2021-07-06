@@ -5,6 +5,8 @@ import android.view.View;
 
 import androidx.core.util.Pair;
 
+import java.util.ArrayList;
+
 import ndk.utils_android1.NetworkUtils1;
 import ndk.utils_android1.ProgressBarUtils1;
 import ndk.utils_android1.ToastUtils1;
@@ -63,4 +65,18 @@ public class HttpApiSelectTaskWrapper14 {
             ToastUtils1.longToast(context, "Internet is unavailable...");
         }
     }
+
+    public static void executeNonSplashForegroundPostWithParameters(String task_URL, ArrayList<org.javatuples.Pair<String, String>> nameValuePairsInJavaTuples, Context context, View progressView, View loginFormView, String applicationName, HttpApiSelectTask14.AsyncResponseJSONObject asyncResponseJSONObject) {
+
+        if (NetworkUtils1.isOnline(context)) {
+
+            ProgressBarUtils1.showProgress(true, context, progressView, loginFormView);
+            new HttpApiSelectTask14(task_URL, nameValuePairsInJavaTuples, context, progressView, loginFormView, applicationName, asyncResponseJSONObject).execute();
+
+        } else {
+
+            ToastUtils1.longToast(context, "Internet is unavailable...");
+        }
+    }
+
 }

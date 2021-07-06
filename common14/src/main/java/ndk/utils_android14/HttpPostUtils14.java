@@ -28,6 +28,11 @@ public class HttpPostUtils14 {
         return "Parameters : " + toStringOnStringPairs(nameValuePairs);
     }
 
+    public static String toStringOnNameValuePairsInJavaTuples(ArrayList<org.javatuples.Pair<String, String>> nameValuePairsInJavaTuples) {
+
+        return "Parameters : " + toStringOnStringPairsForJavaTuples(nameValuePairsInJavaTuples);
+    }
+
     public static String toStringOnStringPairs(Pair[] parameterPairs) {
 
         StringBuilder result = new StringBuilder();
@@ -39,6 +44,22 @@ public class HttpPostUtils14 {
             } else {
 
                 result = result.append(", ").append(parameterPairs[i].first != null ? parameterPairs[i].first.toString() : "").append(" : ").append(parameterPairs[i].second != null ? parameterPairs[i].second.toString() : "");
+            }
+        }
+        return result.toString();
+    }
+
+    public static String toStringOnStringPairsForJavaTuples(ArrayList<org.javatuples.Pair<String, String>> parameterPairsInJavaTuples) {
+
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < parameterPairsInJavaTuples.size(); i++) {
+
+            if (i == 0) {
+
+                result = result.append(parameterPairsInJavaTuples.get(i).getValue0()).append(" : ").append(parameterPairsInJavaTuples.get(i).getValue1());
+            } else {
+
+                result = result.append(", ").append(parameterPairsInJavaTuples.get(i).getValue0()).append(" : ").append(parameterPairsInJavaTuples.get(i).getValue1());
             }
         }
         return result.toString();
