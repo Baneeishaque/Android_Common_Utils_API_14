@@ -70,7 +70,15 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
     //TODO : Make boolean variable
     private int splashFlag = 0;
 
-    public HttpApiSelectTask14(String url, Pair[] nameValuePairs, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONArray asyncResponseJSONArray) {
+    boolean isJavaTuplesUsedForNameValuePairs = false;
+    ArrayList<org.javatuples.Pair<String, String>> nameValuePairsInJavaTuples = new ArrayList<>();
+
+    private boolean isCustomizedNoEntriesMessagePresent = false;
+    private String customizedNoEntriesMessage = "";
+
+    NoEntriesActions noEntriesActions;
+
+    public HttpApiSelectTask14(String url, Pair[] nameValuePairs, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONArray asyncResponseJSONArray, NoEntriesActions noEntriesActions) {
 
         this.url = url;
         this.context = context;
@@ -79,9 +87,24 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
         this.applicationName = applicationName;
         this.nameValuePairs = nameValuePairs;
         this.asyncResponseJSONArray = asyncResponseJSONArray;
+        this.noEntriesActions = noEntriesActions;
     }
 
-    public HttpApiSelectTask14(String url, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONArray asyncResponseJSONArray) {
+    public HttpApiSelectTask14(String url, Pair[] nameValuePairs, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONArray asyncResponseJSONArray, String customizedNoEntriesMessage, NoEntriesActions noEntriesActions) {
+
+        this.url = url;
+        this.context = context;
+        this.progressBar = progressBar;
+        this.form = form;
+        this.applicationName = applicationName;
+        this.nameValuePairs = nameValuePairs;
+        this.asyncResponseJSONArray = asyncResponseJSONArray;
+        this.isCustomizedNoEntriesMessagePresent = true;
+        this.customizedNoEntriesMessage = customizedNoEntriesMessage;
+        this.noEntriesActions = noEntriesActions;
+    }
+
+    public HttpApiSelectTask14(String url, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONArray asyncResponseJSONArray, NoEntriesActions noEntriesActions) {
 
         this.url = url;
         this.context = context;
@@ -89,9 +112,10 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
         this.form = form;
         this.applicationName = applicationName;
         this.asyncResponseJSONArray = asyncResponseJSONArray;
+        this.noEntriesActions = noEntriesActions;
     }
 
-    public HttpApiSelectTask14(String url, Pair[] nameValuePairs, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONArray asyncResponseJSONArray, boolean isStatusCheckOnAsyncResponseJsonArrayFirstElementEnabled) {
+    public HttpApiSelectTask14(String url, Pair[] nameValuePairs, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONArray asyncResponseJSONArray, boolean isStatusCheckOnAsyncResponseJsonArrayFirstElementEnabled, NoEntriesActions noEntriesActions) {
 
         this.url = url;
         this.context = context;
@@ -101,12 +125,10 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
         this.nameValuePairs = nameValuePairs;
         this.asyncResponseJSONArray = asyncResponseJSONArray;
         this.isStatusCheckOnAsyncResponseJsonArrayFirstElementEnabled = isStatusCheckOnAsyncResponseJsonArrayFirstElementEnabled;
+        this.noEntriesActions = noEntriesActions;
     }
 
-    boolean isJavaTuplesUsedForNameValuePairs = false;
-    ArrayList<org.javatuples.Pair<String, String>> nameValuePairsInJavaTuples = new ArrayList<>();
-
-    public HttpApiSelectTask14(String url, Pair[] nameValuePairs, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONObject asyncResponseJSONObject) {
+    public HttpApiSelectTask14(String url, Pair[] nameValuePairs, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONObject asyncResponseJSONObject, NoEntriesActions noEntriesActions) {
 
         this.url = url;
         this.context = context;
@@ -116,9 +138,10 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
         this.nameValuePairs = nameValuePairs;
         this.asyncResponseJSONObject = asyncResponseJSONObject;
         this.responseFlag = 2;
+        this.noEntriesActions = noEntriesActions;
     }
 
-    public HttpApiSelectTask14(String url, ArrayList<org.javatuples.Pair<String, String>> nameValuePairsInJavaTuples, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONObject asyncResponseJSONObject) {
+    public HttpApiSelectTask14(String url, ArrayList<org.javatuples.Pair<String, String>> nameValuePairsInJavaTuples, Context context, View progressBar, View form, String applicationName, AsyncResponseJSONObject asyncResponseJSONObject, NoEntriesActions noEntriesActions) {
 
         this.url = url;
         this.context = context;
@@ -129,6 +152,7 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
         this.asyncResponseJSONObject = asyncResponseJSONObject;
         this.responseFlag = 2;
         this.isJavaTuplesUsedForNameValuePairs = true;
+        this.noEntriesActions = noEntriesActions;
     }
 
     @Override
@@ -235,12 +259,27 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
 
                                 if (isBackgroundTask) {
 
-                                    LogUtils1.debug(applicationName, "No Entries...");
+                                    if (isCustomizedNoEntriesMessagePresent) {
 
+                                        LogUtils1.debug(applicationName, customizedNoEntriesMessage);
+
+                                    } else {
+
+                                        LogUtils1.debug(applicationName, "No Entries...");
+                                    }
                                 } else {
 
-                                    ToastUtils1.longToast(context, "No Entries...");
+                                    if (isCustomizedNoEntriesMessagePresent) {
+
+                                        ToastUtils1.longToast(context, customizedNoEntriesMessage);
+
+                                    } else {
+
+                                        ToastUtils1.longToast(context, "No Entries...");
+                                    }
+
                                 }
+                                noEntriesActions.processNoEntriesSituation();
                                 break;
 
                             case "0":
@@ -289,5 +328,10 @@ public class HttpApiSelectTask14 extends AsyncTask<Void, Void, String[]> {
     public interface AsyncResponse {
 
         void processFinish(String var1);
+    }
+
+    public interface NoEntriesActions {
+
+        void processNoEntriesSituation();
     }
 }

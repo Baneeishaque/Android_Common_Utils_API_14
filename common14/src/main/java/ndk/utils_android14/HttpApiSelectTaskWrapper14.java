@@ -18,7 +18,21 @@ public class HttpApiSelectTaskWrapper14 {
         if (NetworkUtils1.isOnline(context)) {
 
             ProgressBarUtils1.showProgress(true, context, progressView, loginFormView);
-            new HttpApiSelectTask14(task_URL, nameValuePairs, context, progressView, loginFormView, applicationName, asyncResponseJSONArray).execute();
+            new HttpApiSelectTask14(task_URL, nameValuePairs, context, progressView, loginFormView, applicationName, asyncResponseJSONArray, () -> {
+            }).execute();
+
+        } else {
+
+            ToastUtils1.longToast(context, "Internet is unavailable...");
+        }
+    }
+
+    public static void executeNonSplashForegroundPostWithParametersStatusCheckOnAsyncResponseJsonArrayFirstElementCustomizedNoEntriesMessageAndNoEntriesActions(String task_URL, Pair[] nameValuePairs, Context context, View progressView, View loginFormView, String applicationName, HttpApiSelectTask14.AsyncResponseJSONArray asyncResponseJSONArray, String customizedNoEntriesMessage, HttpApiSelectTask14.NoEntriesActions noEntriesActions) {
+
+        if (NetworkUtils1.isOnline(context)) {
+
+            ProgressBarUtils1.showProgress(true, context, progressView, loginFormView);
+            new HttpApiSelectTask14(task_URL, nameValuePairs, context, progressView, loginFormView, applicationName, asyncResponseJSONArray, customizedNoEntriesMessage, noEntriesActions).execute();
 
         } else {
 
@@ -31,7 +45,8 @@ public class HttpApiSelectTaskWrapper14 {
         if (NetworkUtils1.isOnline(context)) {
 
             ProgressBarUtils1.showProgress(true, context, progressView, loginFormView);
-            new HttpApiSelectTask14(task_URL, context, progressView, loginFormView, applicationName, asyncResponseJSONArray).execute();
+            new HttpApiSelectTask14(task_URL, context, progressView, loginFormView, applicationName, asyncResponseJSONArray, () -> {
+            }).execute();
 
         } else {
 
@@ -45,7 +60,8 @@ public class HttpApiSelectTaskWrapper14 {
         if (NetworkUtils1.isOnline(context)) {
 
             ProgressBarUtils1.showProgress(true, context, progressView, loginFormView);
-            new HttpApiSelectTask14(task_URL, nameValuePairs, context, progressView, loginFormView, applicationName, asyncResponseJSONArray, false).execute();
+            new HttpApiSelectTask14(task_URL, nameValuePairs, context, progressView, loginFormView, applicationName, asyncResponseJSONArray, false, () -> {
+            }).execute();
 
         } else {
 
@@ -58,7 +74,8 @@ public class HttpApiSelectTaskWrapper14 {
         if (NetworkUtils1.isOnline(context)) {
 
             ProgressBarUtils1.showProgress(true, context, progressView, loginFormView);
-            new HttpApiSelectTask14(task_URL, nameValuePairs, context, progressView, loginFormView, applicationName, asyncResponseJSONObject).execute();
+            new HttpApiSelectTask14(task_URL, nameValuePairs, context, progressView, loginFormView, applicationName, asyncResponseJSONObject, () -> {
+            }).execute();
 
         } else {
 
@@ -71,7 +88,8 @@ public class HttpApiSelectTaskWrapper14 {
         if (NetworkUtils1.isOnline(context)) {
 
             ProgressBarUtils1.showProgress(true, context, progressView, loginFormView);
-            new HttpApiSelectTask14(task_URL, nameValuePairsInJavaTuples, context, progressView, loginFormView, applicationName, asyncResponseJSONObject).execute();
+            new HttpApiSelectTask14(task_URL, nameValuePairsInJavaTuples, context, progressView, loginFormView, applicationName, asyncResponseJSONObject, () -> {
+            }).execute();
 
         } else {
 
